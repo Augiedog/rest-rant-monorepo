@@ -5,7 +5,19 @@ const bcrypt = require('bcrypt')
 const { User } = db
 
 router.post('/', async (req, res) => {
-    console.log('Im here', 'authjs')
+    let user = await User.findOne({
+        where: { email: req.body.email }
+    })
+
+    if (!user || !await bcrypt.compare(req.body.password, user.passwordDigest)) {
+        res.status(404).json({
+            message: `Could not find user with the provided creditals`
+        })
+    } else {
+        res.json({ user })
+        console.log("yes you are loged in")
+    }
+    console.log(user, "authjs")
 })
 
 module.exports = router
