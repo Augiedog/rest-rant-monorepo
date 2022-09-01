@@ -35,7 +35,7 @@ function LoginForm() {
         setErrorMessage(data.message)
        }
 
-       console.log(data, "loginform")
+       console.log("loginform", data)
 
     }
 

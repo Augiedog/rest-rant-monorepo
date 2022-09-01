@@ -95,13 +95,13 @@ router.post('/:placeId/comments', async (req, res) => {
         res.status(404).json({ message: `Could not find place with id "${placeId}"` })
     }
 
-    const author = await User.findOne({
-        where: { userId: req.body.authorId }
-    })
+    // const author = await User.findOne({
+    //     where: { userId: req.body.authorId }
+    // })
 
-    if (!author) {
-        res.status(404).json({ message: `Could not find author with id "${req.body.authorId}"` })
-    }
+    // if (!author) {
+    //     res.status(404).json({ message: `Could not find author with id "${req.body.authorId}"` })
+    // }
 
     let currentUser;
     try {
@@ -133,7 +133,7 @@ router.post('/:placeId/comments', async (req, res) => {
 
     res.send({
         ...comment.toJSON(),
-        author
+        author: currentUser
     })
 })
 

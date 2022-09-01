@@ -46,7 +46,7 @@ function PlaceDetails() {
 				.filter(comment => comment.commentId !== deletedComment.commentId)
 		})
 	}
-
+console.log("there is a problem here")
 	async function createComment(commentAttributes) {
 		const response = await fetch(`http://192.168.0.29:5000/places/${place.placeId}/comments`, {
 			method: 'POST',

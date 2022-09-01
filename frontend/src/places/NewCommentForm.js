@@ -3,7 +3,7 @@ import { useHistory } from "react-router"
 
 function NewCommentForm({ place, onSubmit }) {
 
-    const [authors, setAuthors] = useState([])
+    // const [authors, setAuthors] = useState([])
 
     const [comment, setComment] = useState({
         content: '',
@@ -12,15 +12,15 @@ function NewCommentForm({ place, onSubmit }) {
         authorId: ''
     })
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://192.168.0.29:5000/users`)
-            const users = await response.json()
-            setComment({ ...comment, authorId: users[0]?.userId})
-            setAuthors(users)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await fetch(`http://192.168.0.29:5000/users`)
+    //         const users = await response.json()
+    //         setComment({ ...comment, authorId: users[0]?.userId})
+    //         setAuthors(users)
+    //     }
+    //     fetchData()
+    // }, [])
 
     // let authorOptions = authors.map(author => {
     //     return <option key={author.userId} value={author.userId}>{author.firstName} {author.lastName}</option>
@@ -33,7 +33,7 @@ function NewCommentForm({ place, onSubmit }) {
             content: '',
             stars: 3,
             rant: false,
-            authorId: authors[0]?.userId
+            // authorId: authors[0]?.userId
         })
     }
 
