@@ -51,6 +51,7 @@ function PlaceDetails() {
 		const response = await fetch(`http://192.168.0.29:5000/places/${place.placeId}/comments`, {
 			method: 'POST',
 			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(commentAttributes)
