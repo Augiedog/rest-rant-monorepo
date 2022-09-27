@@ -11,6 +11,12 @@ DB_USERNAME=postgres
 DB_PASSWORD=password
 DB_DATABASE=rest_rant
 ```
+You will also need to create a `.env` file inside of `frontend`. It will need to contain the following environment variables
+```
+BUILD_PATH=../backend/public/build
+REACT_APP_SERVER_URL=localhost:5000/
+
+```
 
 Next `cd` into `backend` and run `npm install` to install dependencies for the API.
 
